@@ -107,10 +107,69 @@ Estas rutas se combinan cuando se instala finalmente el sistema. En la parte de 
 \end{enumerate}
 
 \section{Ejemplo}
+ 
+\section{Ventajas y Desventajas}
+\begin{enumerate}[5.1]
+    \item Ventajas de la Metodologia Inmon.
+ \\
+\begin{itemize}
+\item Tecnología (Camino Superior). Implica tareas relacionadas con software específico, por ejemplo, Microsoft SQL Analysis Services.
+\item El almacén de datos realmente sirve como la única fuente de verdad para la empresa, ya que es la única fuente para los almacenes de datos y todos los datos en el almacén de datos están integrados.
+\item Las anomalías de actualización de datos se evitan debido a una redundancia muy baja. Esto hace que el proceso ETL sea más fácil y menos propenso a fallar.
+\item Los procesos de negocios se pueden entender fácilmente, ya que el modelo lógico representa las entidades de negocios detalladas.
+\item Muy flexible: a medida que cambian los requisitos del negocio o cambian los datos de origen, es fácil actualizar el almacén de datos ya que una cosa está en un solo lugar.
+\item Puede manejar diversas necesidades de informes en toda la empresa.
+\\
+\end{itemize}
+ \item Desventajas de la Metodologia Inmon.
+\begin{itemize}
 
-\section{Analisis}
+\item El modelo y la implementación pueden volverse complejos con el tiempo, ya que involucra más tablas y combinaciones.
+\item Necesita recursos que sean expertos en modelado de datos y de la propia empresa. Este tipo de recursos puede ser difícil de encontrar y, a menudo, son costosos.
+\item La configuración inicial y la entrega tomarán más tiempo, y la administración debe ser consciente de esto.
+\item Se necesita más trabajo de ETL ya que los almacenes de datos se crean a partir del almacén de datos.
+\item Un equipo bastante grande de especialistas debe estar presente para gestionar con éxito el medio ambiente (Breslin, 2004).
+\end{itemize}
 
+ \item Ventajas de la Metodologia Kimball.
+\begin{itemize}
+\item Rápido de configurar y construir, y la primera fase del proyecto de almacenamiento de datos se entregará rápidamente.
+\item El esquema en estrella puede ser comprendido fácilmente por los usuarios de negocios y es fácil de usar para informes. La mayoría de las herramientas de BI funcionan bien con el esquema en estrella.
+\item La huella del entorno de almacenamiento de datos es pequeña, ocupa menos espacio en la base de datos y facilita la administración del sistema.
+\item El rendimiento del modelo de esquema en estrella es muy bueno. El motor de la base de datos realizará una "combinación estrella" en la que se creará un producto cartesiano utilizando todos los valores de dimensión y la tabla de hechos se consultará finalmente para las filas selectivas. Se sabe que esta es una operación de base de datos muy efectiva.
+\item Un pequeño equipo de desarrolladores y arquitectos es suficiente para que el almacén de datos funcione de manera efectiva (Breslin, 2004).
+\item Funciona realmente bien para las métricas por departamento y el seguimiento de KPI, ya que los almacenes de datos están orientados a la información por departamento o por proceso empresarial.
+\item La obtención de detalles, donde una herramienta de BI recorre varios esquemas en estrella para generar un informe, se puede lograr con éxito utilizando dimensiones conformadas.
+\end{itemize}
+
+\item Desventajas de la Metodologia Kimball.
+\begin{itemize}
+
+\item La esencia de la "fuente de la verdad" se pierde, ya que los datos no se integran completamente antes de atender las necesidades de informes.
+\item Los datos redundantes pueden causar anomalías en la actualización de los datos a lo largo del tiempo.
+\item Agregar columnas a la tabla de hechos puede causar problemas de rendimiento. Esto se debe a que las tablas de hecho están diseñadas para ser muy profundas. Si se agregan nuevas columnas, el tamaño de la tabla de hechos se vuelve mucho más grande y no tendrá un buen desempeño. Esto hace que el modelo dimensional sea difícil de cambiar a medida que cambian los requisitos del negocio.
+\item No se pueden manejar todas las necesidades de informes de la empresa porque el modelo está orientado a los procesos de negocios en lugar de a la empresa en su conjunto.
+\item La integración de datos heredados en el almacén de datos puede ser un proceso complejo.
+
+\end{itemize}
+
+
+\end{enumerate}
+ETL: Este término viene de inglés de las siglas Extract-Transform-Load que significan Extraer, Transformar y Cargar. Se refiere a los datos en una empresa
+\section{Diferencias}
+\begin{itemize}
+\item Según W. H. Inmon (considerado por muchos el padre del Data Warehouse), un Data Warehouse es un conjunto de datos orientados por temas, integrados, variantes en el tiempo y no volátiles, que tienen por objetivo dar soporte a la toma de decisiones.
+\item Según Ralph Kimball (considerado el principal promotor del enfoque dimensional para el diseño de almacenes de datos), un Data Warehouse es una copia de los datos transaccionales específicamente estructurada para la consulta y el análisis.
+\end{itemize}
+\begin {center}
+\includegraphics[scale= 0.80]{./Imagenes/vs.png}
+\end {center}
+\begin {center}
+\includegraphics[scale= 0.80]{./Imagenes/vs2.png}
+\end {center}
 \section{Conclusion}
+El método Kimball está orientado a la consulta de la información, por lo que su estructura interna está especialmente diseñada para garantizar una explotación de los datos rápida y sencilla, no requiriendo usuarios especializados para ello. Por el contrario, el método Inmon persigue la integración de todos los datos de la compañía, estando orientado hacia el almacenaje de grandes volúmenes de datos, por lo que su estructura interna normalizada se diseña para evitar la redundancia de datos, simplificar las labores de mantenimiento, etc. cuestiones que complican las consultas de la información, requiriendo que los usuarios finales estén mucho más especializados.
+Así, podríamos decir que el enfoque de Kimball se ajusta más a proyectos pequeños en los que se persiga un sistema fácilmente explotable y entendible por el usuario y de rápido desarrollo, siendo el modelo de Inmon más apropiado para sistemas complejos de mayor importancia.
 
 %%
 	
@@ -126,15 +185,15 @@ Estas rutas se combinan cuando se instala finalmente el sistema. En la parte de 
 		%ESTILO
 	   \bibliography{BIBLIOGRAFIA}		%ARCHIVO .bib
 	   \begin{thebibliography}{0}
-                \bibitem{Ronald} https://twooctobers.com/blog/8-data-storytelling-concepts-with-examples/
-                 \bibitem{Juan} https://twooctobers.com/blog/8-data-storytelling-concepts-with-examples
-                  \bibitem{Jhordy} https://www.pqs.pe/campus-romero/data-storytelling-empresas
-                  \bibitem{Jhordy} https://observatoriocibermedios.upf.edu/patterns-in-data-storytelling
+              \bibitem{Ronald} 
+ 	    \bibitem{Angelo} 
+                 \bibitem{Juan} http://tdan.com/data-warehouse-design-inmon-versus-kimball/20300
+                  \bibitem{Jhordy} https://blog.bi-geek.com/arquitectura-comparativa-inmon-y-kimball/
+                  \bibitem{Jhordy} https://churriwifi.wordpress.com/2010/04/19/15-2-ampliacion-conceptos-del-modelado-dimensional/
                     \bibitem{Brandon} https://twooctobers.com/blog/8-data-storytelling-concepts-with-examples/
                    \bibitem{Brandon}https://www.ucasal.edu.ar/htm/ingenieria/cuadernos/archivos/5-p56-rivadera-formateado.pdf
 
          \end{thebibliography}
-
 	
 \end{document}
 

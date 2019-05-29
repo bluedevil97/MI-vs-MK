@@ -1,0 +1,16 @@
+Brandon Mamani:
+	- http://inteligenciadenegociosval.blogspot.com/2014/01/metodologia-de-		kimball.html
+
+Angelo Quispe:
+
+
+Ronald Ordoñez:
+
+Juan Rodriguez:
+
+Jhordy Vizcarra:
+	
+	- https://blog.bi-geek.com/arquitectura-comparativa-inmon-y-kimball/
+	- https://churriwifi.wordpress.com/2010/04/19/15-2-ampliacion-conceptos-del-		modelado-dimensional/
+	- http://www.interaktiv.cl/blog/wp-content/uploads/2012/04/4.-		Metodologia_disegno_DW1.pdf
+	- http://tdan.com/data-warehouse-design-inmon-versus-kimball/20300
