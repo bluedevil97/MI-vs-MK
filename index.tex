@@ -111,6 +111,8 @@ La metodología se basa en lo que Kimball denomina Ciclo de Vida Dimensional del
 Ofrecer la solución completa proporcionar todos los elementos necesarios para entregar valor a los usuarios de negocios. Para comenzar, esto significa tener un almacén de datos sólido, bien diseñado, con calidad probada, y accesible. También se deberá entregar herramientas de consulta ad hoc, aplicaciones para informes y análisis. \\
 \end{itemize} 
 
+
+
 La construcción de una solución de DW/BI (Datawarehouse/Business Intelligence) es sumamente compleja, y Kimball nos propone una metodología que nos ayuda a simplificar esa complejidad. Las tareas de esta metodología (ciclo de vida) se muestran en la figura 1. 
 De la figura 1, podemos observar dos cuestiones. Primero, hay que resaltar el rol central de la tarea de definición de requerimientos. Los requerimientos del negocio son el soporte inicial de las tareas subsiguientes. También tiene influencia en el plan de proyecto (nótese la doble fecha entre la caja de definición de requerimientos y la de planificación). En segundo lugar podemos ver tres rutas o caminos que se enfocan en tres diferentes áreas
 
@@ -132,10 +134,91 @@ Los requerimientos del negocio son el soporte inicial de las tareas subsiguiente
 \end{itemize} 
 Estas rutas se combinan cuando se instala finalmente el sistema. En la parte de debajo de la figura se muestra la actividad general de administración del proyecto. A continuación describiremos cada una de las tareas. 
 \end{enumerate}
+\section{Proceso de Desarrollo de Modelo Kimball}
+\begin{enumerate}[4.1]
+ \item Planificacion del Proyecto\\
+
+En este proceso se determina el propósito del proyecto de DW/BI, sus objetivos específicos y el alcance del mismo, los principales riesgos y una aproximación inicial a las necesidades de información.
+
+Esta tarea incluye las siguientes acciones típicas de un plan de proyecto:
+
+
+\begin{itemize}
+  \item Definir el alcance (entender los requerimientos del negocio).
+  \item Identificar las tareas
+\item Programar las tareas
+\item Planificar el uso de los recursos.
+\item Asignar la carga de trabajo a los recursos
+\item Elaboración de un documento final que representa un plan del proyecto.
+\item Monitoreo del estado de los procesos y actividades.
+\item Rastreo de problemas
+\item Desarrollo de un plan de comunicación comprensiva que direccione la empresa y las áreas de TI
+\end{itemize} 
+
+\item Definicion de Requisitos de Negocios \\
+
+La definición de requerimientos, es un proceso de entrevistar al personal de negocio y técnico, aunque siempre conviene, tener un poco de preparación previa. En esta tarea, se debe aprender sobre el negocio, los competidores, la industria y los clientes del mismo. Se debe dar una revision a todos los informes posibles de la organización; rastrear los documentos de estrategia interna; entrevistar a los empleados, analizar lo que se dice en la prensa acerca de la organización, la competencia y la industria y se deben conocer los términos y la terminología del negocio.\\
+\item Modelo Dimensional \\
+
+Es un proceso dinámico y altamente iterativo. Comienza con un modelo dimensional de alto nivel obtenido a partir de los procesos priorizados y descritos en la tarea anterior, y El proceso iterativo consiste en cuatro pasos:
+
+\begin{itemize}
+  \item Elegir el proceso de negocio
+  \item Establecer el nivel de granularidad
+\item  Elegir las dimensiones
+\item  Identificar medidas y las tablas de hechos
+
+\end{itemize} 
+
+\item Diseño Fisico \\
+
+En esta tarea, se contestan las siguientes preguntas:
+
+\begin{itemize}
+  \item ¿Cómo puede determinar cuán grande será el sistema de DW/BI?
+  \item ¿Cuáles son los factores de uso que llevarán a una configuración más grande y más compleja?
+  \item ¿Cómo se debe configurar el sistema?
+  \item ¿Cuánta memoria y servidores se necesitan? ¿Qué tipo de almacenamiento y procesadores?
+ \item ¿Cómo instalar el software en los servidores de desarrollo, prueba y producción?
+ \item ¿Qué necesitan instalar los diferentes miembros del equipo de DW/BI en sus estaciones de trabajo?
+ \item ¿Cómo convertir el modelo de datos lógico en un modelo de datos físicos en la base de datos relacional?
+ \item ¿Cómo conseguir un plan de indexación inicial?
+ \item ¿Debe usarse la partición en las tablas relacionales? 
+
+\end{itemize} 
+\item Diseño e Implementacion de Subsistema de Extraccion, Transicion y Carga \\
+
+El subsistema de Extracción, Transformación y Carga (ETL) es la base sobre la cual se alimenta el Data warehouse. Si se diseña adecuadamente, puede extraer los datos de los sistemas de origen de datos, aplicar diferentes reglas para aumentar la calidad y consistencia de los mismos, consolidar la información proveniente de distintos sistemas, y finalmente cargar (grabar) la información en el DW en un formato acorde para la utilización por parte de las herramientas de análisis.\\
+
+\item Mantenimiento y Crecimiento del Data Warehouse \\
+
+Para administrar el entorno del Data Warehouse existente es importante enfocarse en los usuarios de negocio, los cuales son el motivo de su existencia, además de gestionar adecuadamente las operaciones del Data Warehouse, medir y proyectar su éxito y comunicarse constantemente con los usuarios para establecer un flujo de retroalimentación, En esto consiste el Mantenimiento. Finalmente, es importante sentar las bases para el crecimiento y evolución del Data Warehouse en donde el aspecto clave es manejar el crecimiento y evolución de forma iterativa utilizando el Ciclo de Vida propuesto, y establecer las oportunidades de crecimiento y evolución en orden por nivel prioridad.
+
+\item Especificacion de Aplicaciones de BI \\
+
+En está tarea se proporciona, a una gran comunidad de usuarios una forma más estructurada y por lo tanto, más fácil, de acceder al almacén de datos. Se proporciona este acceso estructurado a través de lo que llamamos, aplicaciones de inteligencia de negocios (Business Intelligence Aplications). Las aplicaciones de BI son la cara visible de la inteligencia de negocios: los informes y aplicaciones de análisis proporcionan información útil a los usuarios. Las aplicaciones de BI incluyen un amplio espectro de tipos de informes y herramientas de análisis, que van desde informes simples de formato fijo, a sofisticadas aplicaciones analíticas que usan complejos algoritmos e información del dominio. Kimball divide a estas aplicaciones en dos categorías basadas en el nivel de sofisticación, y les llama:\\
+
+\begin{itemize}
+  \item Informes Estandar\\
+  \item Aplicaciones Analiticas
+\\
+
+
+\end{itemize} 
+
+\item Mantenimiento y Crecimiento del Data Warehouse \\
+
+Para administrar el entorno del Data Warehouse existente es importante enfocarse en los usuarios de negocio, los cuales son el motivo de su existencia, además de gestionar adecuadamente las operaciones del Data Warehouse, medir y proyectar su éxito y comunicarse constantemente con los usuarios para establecer un flujo de retroalimentación, En esto consiste el Mantenimiento. Finalmente, es importante sentar las bases para el crecimiento y evolución del Data Warehouse en donde el aspecto clave es manejar el crecimiento y evolución de forma iterativa utilizando el Ciclo de Vida propuesto, y establecer las oportunidades de crecimiento y evolución en orden por nivel prioridad.\\
+
+
+\item Diseño y Arquitectura Tecnica \\
+
+El área de arquitectura técnica cubre los procesos y herramientas que se aplican a los datos. En el área técnica existen dos conjuntos que tienen distintos requerimientos, brindan sus propios servicios y componentes de almacenaje de datos, por lo que se consideran cada uno aparte: El back room (habitación trasera) y el front room (habitación frontal). El back room es el responsable de la obtención y preparación de los datos, por lo que también se conoce como adquisición de datos y el front room es responsable de entregar los datos a la comunidad de usuario y también se le conoce como acceso de datos.\\
+\end{enumerate}
 
 \section{Enfoque}
  
-\begin{enumerate}[4.1]
+\begin{enumerate}[5.1]
     \item Enforque Inmon. \\
 \\
 Para ir adentrándonos poco a poco en sus principales diferencias y poder llegar a determinar qué opción es la más adecuada en nuestros proyectos, en esta entrada expondré las características más destacadas del enfoque de Inmon.
@@ -169,7 +252,7 @@ En la próxima entrada expondré el enfoque de Ralph Kimball para, a continuaci�
 \end{enumerate}
 
 \section{Ventajas y Desventajas}
-\begin{enumerate}[5.1]
+\begin{enumerate}[5.2]
     \item Ventajas de la Metodologia Inmon.
  \\
 \begin{itemize}
